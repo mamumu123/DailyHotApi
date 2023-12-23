@@ -43,7 +43,6 @@ const getData = (data) => {
         .load(newListHtml)(".placeholder")
         .get()
         .map((v) => {
-          console.log($(v));
           dataList.push({
             title: $(v).find(".plc-title").text(),
             img: $(v).find("img").attr("data-original"),
@@ -128,7 +127,7 @@ itHomeRouter.get("/ithome/new", async (ctx) => {
       message: "获取成功",
       ...routerInfo,
       updateTime,
-      total: data.length,
+      total: newData.length,
       data: newData,
     };
 
@@ -145,7 +144,7 @@ itHomeRouter.get("/ithome/new", async (ctx) => {
         code: 200,
         message: "获取成功",
         ...routerInfo,
-        total: data.length,
+        total: cachedData.length,
         updateTime,
         data: cachedData,
       };

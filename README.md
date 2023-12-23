@@ -24,9 +24,10 @@
 | 百度         | 热搜榜   | baidu               | 🟢       |
 | 抖音         | 热点榜   | douyin / douyin_new | 🟢       |
 | 抖音         | 热歌榜   | douyin_music        | 🟢       |
+| 豆瓣         | 新片榜   | douban_new          | 🟢       |
 | 百度贴吧     | 热议榜   | tieba               | 🟢       |
 | 少数派       | 热榜     | sspai               | 🟢       |
-| IT 之家      | 热榜     | ithome              | 🟢       |
+| IT 之家      | 热榜     | ithome              | 🟠       |
 | 澎湃新闻     | 热榜     | thepaper            | 🟢       |
 | 今日头条     | 热榜     | toutiao             | 🟢       |
 | 36 氪        | 热榜     | 36kr                | 🟢       |
@@ -59,12 +60,34 @@ GET https://example.com/calendar/date?month=06&day=01
 
 ## 部署
 
-```js
+```bash
 // 安装依赖
 pnpm install
 
 // 运行
 pnpm start
+```
+
+## Docker 部署
+
+> 安装及配置 Docker 将不在此处说明，请自行解决
+
+### 本地构建
+
+```bash
+// 构建
+docker build -t dailyhot-api .
+// 运行
+docker run -p 6688:6688 -d dailyhot-api
+```
+
+### 在线部署
+
+```bash
+// 拉取
+docker pull imsyy/dailyhot-api:1.0.5
+// 运行
+docker run -p 6688:6688 -d imsyy/dailyhot-api:1.0.5
 ```
 
 ## Vercel 部署
